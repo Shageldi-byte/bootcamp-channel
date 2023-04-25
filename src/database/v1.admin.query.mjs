@@ -1,4 +1,5 @@
 import { IMAGE_BASE_URL } from "../core/constant.mjs";
+import { generateUUID } from "../core/utils.mjs";
 
 export const addUserQuery = `
 INSERT INTO bootcamp.users(
@@ -40,4 +41,30 @@ DELETE FROM bootcamp.category WHERE id=$1;
 
 export const getAllCategoryQuery = `
 SELECT * FROM bootcamp.category ORDER BY created_at DESC;
+`;
+
+export const addVideoQuery = `
+INSERT INTO bootcamp.videos(
+	title, description, poster, uuid, video_url, user_id, category_id, duration)
+	VALUES ($1, $2, $3, '${generateUUID()}', $4, $5, $6,$7) RETURNING *;
+`;
+
+export const getAllVideosQuery = `
+SELECT *,
+'${IMAGE_BASE_URL}/public/video/' || poster AS poster,
+'${IMAGE_BASE_URL}/public/video/' || video_url AS video_url
+FROM bootcamp.videos ORDER BY created_at DESC;
+`;
+
+export const updateVideoQuery = `
+UPDATE bootcamp.videos
+	SET title=$1, description=$2,  category_id=$3,  updated_at='now()'
+`;
+
+export const getSingleVideoQuery = `
+SELECT * FROM bootcamp.videos WHERE id = $1;
+`;
+
+export const deleteVideoQuery = `
+DELETE FROM bootcamp.videos WHERE id = $1;
 `;

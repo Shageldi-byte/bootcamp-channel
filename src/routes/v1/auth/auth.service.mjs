@@ -65,6 +65,7 @@ export function login(req,res){
     const {
         username, password
     } = req.body;
+    console.log(req.body);
     db.query(loginQuery,[username])
     .then(result=>{
         if(result.rows.length>0){
