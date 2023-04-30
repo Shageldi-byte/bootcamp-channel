@@ -1,0 +1,760 @@
+{
+	"info": {
+		"_postman_id": "7fd0972b-9903-448b-92e0-82f27bd9dd47",
+		"name": "bootcamp-channel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "sign-up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"halil\",\r\n    \"password\":\"halil!\",\r\n    \"fullname\":\"Halil\",\r\n    \"email\":\"microsoft7779@gmail.com\",\r\n    \"phone_number\":\"+99365464646\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v1/auth/sign-up",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"admin\",\r\n    \"password\":\"superdisabled\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v1/auth/sign-in",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"sign-in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-user-image",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Shageldi Alyyew/Downloads/5e593fb060cf87210c75f287_gallery-1.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v1/auth/update-user-image",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"update-user-image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/v1/auth/get-profile",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"auth",
+								"get-profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "add-category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name_tm\":\"Kino\",\r\n    \"name_en\":\"Movie\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v1/category/add-category",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"category",
+								"add-category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-category",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name_tm\":\"Aýdym/Saz\",\r\n    \"name_en\":\"Song/Music\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v1/category/update-category/4",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"category",
+								"update-category",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-category Copy",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/v1/category/delete-category/4",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"category",
+								"delete-category",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/v1/category/get-category",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"category",
+								"get-category"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "video",
+			"item": [
+				{
+					"name": "add-video",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "poster",
+									"type": "file",
+									"src": "/C:/Users/Shageldi Alyyew/Downloads/5e593fb060cf87210c75f287_gallery-1.png"
+								},
+								{
+									"key": "video",
+									"type": "file",
+									"src": "/C:/Users/Shageldi Alyyew/Videos/My Sequence.mp4"
+								},
+								{
+									"key": "title",
+									"value": "Test video 2",
+									"type": "default"
+								},
+								{
+									"key": "description",
+									"value": "Test description 2",
+									"type": "default"
+								},
+								{
+									"key": "category_id",
+									"value": "6",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v1/video/add-video",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"video",
+								"add-video"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-video",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "poster",
+									"type": "file",
+									"src": "/C:/Users/Shageldi Alyyew/Downloads/5e593fb060cf87210c75f287_gallery-1.png"
+								},
+								{
+									"key": "video",
+									"type": "file",
+									"src": "/C:/Users/Shageldi Alyyew/Videos/KADR - Anam Babam (OFFICIAL VIDEO) #hakimbey #zalimdünya.mp4"
+								},
+								{
+									"key": "title",
+									"value": "Test video 2",
+									"type": "default"
+								},
+								{
+									"key": "description",
+									"value": "Test description 2",
+									"type": "default"
+								},
+								{
+									"key": "category_id",
+									"value": "6",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v1/video/update-video/2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"video",
+								"update-video",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-videos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/v1/video/get-all-videos",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"video",
+								"get-all-videos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-video",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/v1/video/delete-video/3",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"video",
+								"delete-video",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-single-video",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/v1/video/get-single-video/4",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"video",
+								"get-single-video",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tag",
+			"item": [
+				{
+					"name": "add-tag",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tags\":[\"HI\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v1/tag/add-tag/4",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"tag",
+								"add-tag",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-tag",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"text\":\"hi everyone\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v1/tag/update-tag/2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"tag",
+								"update-tag",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/v1/tag/delete-tag/2",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"tag",
+								"delete-tag",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "comment",
+			"item": [
+				{
+					"name": "add-comment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comment\":\"Super\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v1/comment/add-comment/4",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"comment",
+								"add-comment",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-comment",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comment\":\"Update\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v1/comment/update-comment/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"comment",
+								"update-comment",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-comment",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/v1/comment/delete-comment/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"comment",
+								"delete-comment",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "like",
+			"item": [
+				{
+					"name": "add-like",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\":\"dislike\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/v1/like/add-like/4",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"like",
+								"add-like",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-like Copy",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/v1/like/remove-like/4",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"like",
+								"remove-like",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "client",
+			"item": [
+				{
+					"name": "search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/v1/client/find?search=Kino",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"v1",
+								"client",
+								"find"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Kino"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:7867/api",
+			"type": "default"
+		},
+		{
+			"key": "token",
+			"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYiLCJmdWxsbmFtZSI6IkFkbWluIiwidXNlcm5hbWUiOiJhZG1pbiIsInBhc3N3b3JkIjoiIiwidXNlcl90eXBlIjoiYWRtaW4iLCJpbWFnZSI6IiIsImVtYWlsIjoic2guYWx5eWV3MjAxOUBnbWFpbC5jb20iLCJwaG9uZV9udW1iZXIiOiIrOTkzNjA5ODc2NTQiLCJjcmVhdGVkX2F0IjoiMjAyMy0wNC0yM1QwNjoxNTozOC4zNDFaIiwidXBkYXRlZF9hdCI6IjIwMjMtMDQtMjNUMDY6MTU6MzguMzQxWiIsInN0YXR1cyI6ImFjdGl2ZSIsInZhbGlkYXRpb25fa2V5IjoiYTEzZmViM2YtMTI5Mi00N2IyLTkyNTctYjczZTdlY2UyYjUzIiwiaWF0IjoxNjgyODQ4MTgyfQ.2-u-506XCb3CEo7j515zZlHxg4EWcl2Wx91VHNUY7bs",
+			"type": "default"
+		}
+	]
+}
