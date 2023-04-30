@@ -10,7 +10,6 @@ var transporter = nodemailer.createTransport({
 
 
 export function sendMail(email, subject,message,onResult){
-   
 
     var mailOptions = {
         from: 'expresslesson1@gmail.com',

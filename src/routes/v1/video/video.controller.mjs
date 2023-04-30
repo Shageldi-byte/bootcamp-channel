@@ -1,6 +1,6 @@
 import express from "express";
 import { authenticateToken, checkIsAdmin } from "../auth/jwt.service.mjs";
-import { addVideo, deleteVideo, getAllVideos, getVideoDetails, updateVideo, uploadVideo } from "./video.service.mjs";
+import { addVideo, deleteVideo, getAllVideos, getSingleVideo, getVideoDetails, updateVideo, uploadVideo } from "./video.service.mjs";
 
 const videoController = express.Router();
 videoController.post(
@@ -26,5 +26,7 @@ videoController.patch(
     getVideoDetails,
     deleteVideo
     )
+
+videoController.get('/get-single-video/:id',getSingleVideo);
 
 export default videoController;

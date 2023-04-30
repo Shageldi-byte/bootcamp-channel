@@ -26,7 +26,7 @@ export const signUp = (req,res)=>{
             <h2>Hello ${fullname}</h2>
             <p>Thanks for your registartion.</p>
             <h5>You can activate your account by clicking this link: </h5>
-            <a href="http://192.168.1.9:7867/api/v1/auth/verify-email/${uuid}">Click to activate</a>
+            <a href="http://192.168.1.134:7867/api/v1/auth/verify-email/${uuid}">Click to activate</a>
         `,(r)=>{
             res.json(resGenerator(result.rows[0]));
         })

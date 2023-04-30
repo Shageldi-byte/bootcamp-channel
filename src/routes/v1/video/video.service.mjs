@@ -5,7 +5,7 @@ import { badRequest } from "../../../core/app.response.mjs";
 import { resGenerator } from "../../../core/app.response.mjs";
 import { IMAGE_BASE_URL } from "../../../core/constant.mjs";
 import { db } from "../../../database/connection.mjs";
-import { addVideoQuery, deleteVideoQuery, getAllVideosQuery, getSingleVideoQuery, updateVideoQuery } from "../../../database/v1.admin.query.mjs";
+import { addVideoQuery, deleteVideoQuery, getAllVideosQuery, getSingleVideoQuery, getVideoCommentsQuery, updateVideoQuery, viewVideoQuery } from "../../../database/v1.admin.query.mjs";
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -54,6 +54,7 @@ export function getAllVideos(req,res){
     res.json(resGenerator(result.rows));
   })
   .catch(err=>{
+    console.log(err);
     badRequest(res);
   })
 }
@@ -139,6 +140,24 @@ export async function deleteVideo(req,res){
   })
   .catch(err=>{
     console.log(err);
+    badRequest(res);
+  })
+}
+
+export async function getSingleVideo(req,res){
+  const id = req.params.id;
+  let comments = [];
+  await db.query(getVideoCommentsQuery,[id])
+  .then(result=>{
+    comments = result.rows;
+  })
+  await db.query(viewVideoQuery,[id])
+  .then(result=>{
+    let data = result.rows[0];
+    data.comments = comments;
+    res.json(resGenerator(data));
+  })
+  .catch(err=>{
     badRequest(res);
   })
 }
